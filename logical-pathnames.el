@@ -5,6 +5,8 @@
 ;; Author: Tomas Zellerin <tzellerin@gmail.com>
 ;; Version: 0.9
 ;; Keywords: files
+;; Package-Requires: ((emacs "24.4"))
+;; Url: https://github.com/zellerin/emacs-logical-pathnames
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
