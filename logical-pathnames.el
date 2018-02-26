@@ -23,12 +23,12 @@
 
 ;;; Commentary:
 
-;; Logical pathnames are a concept from Common Lisp. The primary
+;; Logical pathnames are a concept from Common Lisp.  The primary
 ;; purpose is to allow portable specification of paths that can be
-;; used across systems. This package is (very loosely) based on it.
+;; used across systems.  This package is (very loosely) based on it.
 
 ;; While some of fixes it provides in CL are not relevant now
-;; (versioning filesystems, case conversion) or on emacs (different
+;; (versioning filesystems, case conversion) or on Emacs (different
 ;; path separators), files are still on different location on
 ;; different systems, in particular on Linux and Windows.
 
@@ -59,13 +59,13 @@
 (defcustom logical-pathnames-names
   '(("org" . "~/org")
     ("emacs" . "~/.emacs"))
-  "List of mapping from short name to a path. It is currently
-  used for org mode abbreviations, and for nice view of files in the dashboard."
+  "List of mapping from short name to a path.
+It is currently used for org mode abbreviations, and for nice view of files in the dashboard."
   :type '(alist :key-type string :value-type directory))
 
 ;;;###autoload
 (defun logical-pathnames-update-buffer ()
-  "Change all references to a pathnames mentioned in experimental-logical-names to the short name.
+  "Change all references in a buffer to short name.
 Can be used in `dired-after-readin-hook'"
   (interactive)
   (save-excursion
@@ -78,7 +78,8 @@ Can be used in `dired-after-readin-hook'"
 (defun logical-pathnames-update-link (&rest pars)
   "Make last link from org mode links logical.
 
-Suitable for hook"
+Suitable for hook on `org-store-link'; for this reason, it
+formally accepts PARS (but does not use them)."
   (let* ((link (caar org-stored-links))
 	(res link))
     (dolist (ldisk logical-pathnames-names)
